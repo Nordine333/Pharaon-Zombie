@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class mobStats : MonoBehaviour
 {
+	//RoundManager
+	public GameObject RoundManager;
+
 	//vie
 	public int vieMobMax = 100;
 	private int vieMob;
@@ -34,7 +37,7 @@ public class mobStats : MonoBehaviour
 		mobAnim.SetTrigger("die");
 		BoxCollider boxCollider = GetComponent<BoxCollider>(); // je desactive les collissions avec l'ennemi mort
 		if (boxCollider != null) boxCollider.enabled = false;
-			
+		RoundManager.GetComponent<roundGestion>().SignalEnnemiMort(); // maj du nombre de zombie restant
 		Destroy(gameObject,10f); // après 10 secondes detruit l'objet mob
 		
 	}
@@ -42,6 +45,7 @@ public class mobStats : MonoBehaviour
 	public void setVie(int valAtk)
 	{
 		vieMob -= valAtk;
+		GetComponent<ParticleSystem>().Play(); //particule de sang qui tombe lorsque l'ennemi est touché
 		vieMob = Mathf.Clamp(vieMob,0,vieMobMax);
 		Debug.Log(vieMob);
 		if(vieMob <= 0) MobMeurt();

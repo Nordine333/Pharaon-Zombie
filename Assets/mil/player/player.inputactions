@@ -34,15 +34,15 @@
                 },
                 {
                     "name": "LeftAttack",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "9519c076-d3ed-4b07-8e20-2c96e7715b52",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "BuyWeapon",
+                    "name": "InteractionBuy",
                     "type": "Button",
                     "id": "126ac62b-ff8c-4d3d-a150-0a92f6d8ed89",
                     "expectedControlType": "Button",
@@ -147,7 +147,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "keyboard&mouse",
-                    "action": "BuyWeapon",
+                    "action": "InteractionBuy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

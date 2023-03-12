@@ -27,7 +27,7 @@ public class buyWeaponPlayer : MonoBehaviour
         
     }
     
-    void OnBuyWeapon()
+    void OnInteractionBuy() 
     {
 		ray = GetComponent<attaquePlayer>().cameraActif.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f,0.5f));
 		if(Physics.Raycast(ray, out hit))
@@ -41,7 +41,7 @@ public class buyWeaponPlayer : MonoBehaviour
 					GetComponent<attaquePlayer>().GetArme().EraseWeapon();
 					GetComponent<attaquePlayer>().SetArme(weaponToBuy);
 					weaponToBuy.GetComponent<ParentConstraint>().enabled = true;
-					switch (weaponToBuy.getTypeArme()) 
+					switch (weaponToBuy.getTypeArme())  //animation differente selon l'arme porté
 					{
 						case "Pistol": 
 							handAnimator.SetTrigger("pistolet");
